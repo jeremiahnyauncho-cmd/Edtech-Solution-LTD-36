@@ -1,0 +1,954 @@
+<!DOCTYPE HTML>
+<HTML lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edtech Solutions Ltd | Creative Design & Smart Technology</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #071b35, #123e69);
+            color: white;
+            text-align: center;
+            padding: 25px 15px;
+            position: relative;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #logoPreview {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            border-radius: 50%;
+            background: white;
+            padding: 8px;
+            border: 4px solid #00c6ff;
+            margin-bottom: 15px;
+        }
+
+        .logo-upload {
+            margin-bottom: 12px;
+        }
+
+        .logo-upload label {
+            background: #00c6ff;
+            color: #071b35;
+            padding: 9px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+        }
+
+        .logo-upload input {
+            display: none;
+        }
+
+        header h1 {
+            font-size: 34px;
+            margin-bottom: 5px;
+        }
+
+        header p {
+            font-size: 17px;
+            color: #d8efff;
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: #020d1c;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 16px 22px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav ul li a:hover {
+            background: #00c6ff;
+            color: #001426;
+        }
+
+        /* GENERAL SECTIONS */
+        section {
+            padding: 65px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: #073b6b;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* HOME */
+        #home {
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background:
+                linear-gradient(rgba(0, 20, 45, 0.78), rgba(0, 20, 45, 0.78)),
+                url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover;
+            background-position: center;
+            color: white;
+        }
+
+        .home-content {
+            max-width: 900px;
+        }
+
+        .home-content h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #00c6ff;
+            color: #031b2f;
+            padding: 12px 25px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: white;
+        }
+
+        /* ABOUT HOME */
+        .intro {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .intro-logo {
+            margin-top: 30px;
+        }
+
+        .intro-logo img {
+            max-width: 220px;
+            max-height: 180px;
+            object-fit: contain;
+            border-radius: 12px;
+        }
+
+        /* SERVICES */
+        #services {
+            background: #eef5fb;
+        }
+
+        .services-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .service-card h3 {
+            color: #073b6b;
+            font-size: 25px;
+            margin-bottom: 15px;
+        }
+
+        .service-card input,
+        .service-card textarea {
+            width: 100%;
+            padding: 11px;
+            margin: 7px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .service-card textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .media-preview {
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        .media-preview img,
+        .media-preview video {
+            max-width: 100%;
+            max-height: 300px;
+            border-radius: 10px;
+        }
+
+        .price {
+            color: #008000;
+            font-size: 21px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* ABOUT */
+        .about-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .about-box {
+            background: white;
+            margin-bottom: 25px;
+            padding: 28px;
+            border-left: 5px solid #00aeea;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .about-box h3 {
+            color: #073b6b;
+            margin-bottom: 12px;
+        }
+
+        .about-box ul {
+            padding-left: 25px;
+        }
+
+        /* CONTACT */
+        #contact {
+            background: #edf5fa;
+        }
+
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        .contact-info,
+        .question-form {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .contact-info h3,
+        .question-form h3 {
+            color: #073b6b;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin: 17px 0;
+            font-size: 16px;
+        }
+
+        .contact-item strong {
+            display: block;
+            color: #073b6b;
+        }
+
+        .contact-item a {
+            color: #0077aa;
+            text-decoration: none;
+        }
+
+        .question-form input,
+        .question-form textarea,
+        .question-form select {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .question-form textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+
+                /* FOOTER */
+                footer {
+                    background: #020d1c;
+                    color: white;
+                    text-align: center;
+                    padding: 25px 15px;
+                }
+
+        footer p {
+            margin: 5px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 27px;
+            }
+
+            .home-content h2 {
+                font-size: 31px;
+            }
+
+            .home-content p {
+                font-size: 17px;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav ul li a {
+                text-align: center;
+                padding: 12px;
+            }
+
+            section {
+                padding: 45px 5%;
+            }
+
+            .services-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+    <div class="logo-container">
+
+        <!-- LOGO -->
+        <img id="logoPreview"
+             src="https://via.placeholder.com/140?text=YOUR+LOGO"
+             alt="Edtech Solutions Ltd Logo">
+
+        <!-- LOGO UPLOAD -->
+        <div class="logo-upload">
+            <label for="logoInput"> Add / Change Business Logo</label>
+
+            <input type="file"
+                   id="logoInput"
+                   accept="image/*">
+        </div>
+
+        <h1>Edtech Solutions Ltd</h1>
+
+        <p> Creative Design. Smart Tech.</p>
+
+    </div>
+
+</header>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#contact">Contacts</a></li>
+    </ul>
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="home">
+
+    <div class="home-content">
+
+        <h2>Transforming Ideas Into Digital Brands</h2>
+
+        <p>
+            Edtech Solutions Ltd is a creative design and website
+            design company helping businesses establish a strong
+            brand identity and professional online presence.
+        </p>
+
+        <a href="#services" class="btn">View Our Services</a>
+
+        <a href="#contact" class="btn">Contact Us</a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOME DESCRIPTION ================= -->
+
+<section>
+
+    <div class="section-title">
+        <h2>About Edtech Solutions Ltd</h2>
+    </div>
+
+    <div class="intro">
+
+        <p>
+            Edtech Solutions Ltd specializes in
+            <strong>Graphic Design and Website Design</strong>.
+            We enable clients to enjoy professional digital
+            functions and have their businesses represented
+            online.
+        </p>
+
+        <p>
+            From logos and posters to professional websites,
+            we help turn your ideas into digital brands.
+        </p>
+
+        <!-- SECOND LOGO -->
+        <div class="intro-logo">
+
+            <img id="secondLogo"
+                 src="https://via.placeholder.com/220?text=YOUR+LOGO"
+                 alt="Business Logo">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SERVICES ================= -->
+
+<section id="services">
+
+    <div class="section-title">
+
+        <h2>Our Services</h2>
+
+        <p>
+            Choose a service and add your preferred
+            images, videos, description, pricing.
+        </p>
+
+    </div>
+
+
+    <div class="services-container">
+
+
+        <!-- GRAPHIC DESIGN -->
+
+        <div class="service-card">
+
+            <h3> Graphic Design</h3>
+
+            <p>
+                Professional creative designs for businesses,
+                organizations, events, personal brands.
+            </p>
+
+            <label><strong>Upload Photo:</strong></label>
+
+            <input type="file"
+                   id="graphicImage"
+                   accept="image/*">
+
+            <div class="media-preview">
+
+                <img id="graphicImagePreview"
+                     style="display:none;"
+                     alt="Graphic Design">
+
+            </div>
+
+
+            <label><strong>Upload Video:</strong></label>
+
+            <input type="file"
+                   id="graphicVideo"
+                   accept="video/*">
+
+            <div class="media-preview">
+
+                <video id="graphicVideoPreview"
+                       controls
+                       style="display:none;">
+                </video>
+
+            </div>
+
+
+            <label><strong>Service Description:</strong></label>
+
+            <textarea
+                id="graphicDescription"
+                placeholder="Enter graphic design service description...">
+            </textarea>
+
+
+            <label><strong>Price:</strong></label>
+
+            <input
+                type="text"
+                id="graphicPrice"
+                placeholder="Example: Ksh 1,500">
+
+            <p class="price"
+               id="graphicPriceDisplay">
+            </p>
+
+        </div>
+
+
+        <!-- WEBSITE DESIGN -->
+
+        <div class="service-card">
+
+            <h3> Website Design</h3>
+
+            <p>
+                Professional responsive websites designed
+                for businesses, organizations, individuals.
+            </p>
+
+
+            <label><strong>Upload Photo:</strong></label>
+
+            <input type="file"
+                   id="websiteImage"
+                   accept="image/*">
+
+            <div class="media-preview">
+
+                <img id="websiteImagePreview"
+                     style="display:none;"
+                     alt="Website Design">
+
+            </div>
+
+
+            <label><strong>Upload Video:</strong></label>
+
+            <input type="file"
+                   id="websiteVideo"
+                   accept="video/*">
+
+            <div class="media-preview">
+
+                <video id="websiteVideoPreview"
+                       controls
+                       style="display:none;">
+                </video>
+
+            </div>
+
+
+            <label><strong>Service Description:</strong></label>
+
+            <textarea
+                id="websiteDescription"
+                placeholder="Enter website design service description...">
+            </textarea>
+
+
+            <label><strong>Price:</strong></label>
+
+            <input
+                type="text"
+                id="websitePrice"
+                placeholder="Example: Ksh 15,000">
+
+            <p class="price"
+               id="websitePriceDisplay">
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT US ================= -->
+
+<section id="about">
+
+    <div class="section-title">
+
+        <h2>About Us</h2>
+
+        <p>Learn more about Edtech Solutions Ltd</p>
+
+    </div>
+
+
+    <div class="about-container">
+
+
+        <div class="about-box">
+
+            <h3>1. Executive Summary</h3>
+
+            <p>
+                <strong>Business Name:</strong>
+                Edtech Solutions Ltd
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>Mission Statement</h3>
+
+            <p>
+                "Transforming innovative ideas into digital
+                brands through creative design and smart technology."
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>Vision</h3>
+
+            <p>
+                To be a leading provider of creative design
+                and tech solutions that help businesses establish
+                a strong brand identity and online presence.
+            </p>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>Core Services</h3>
+
+            <ul>
+
+                <li>Logos</li>
+
+                <li>Posters</li>
+
+                <li>Branding</li>
+
+                <li>Business Websites</li>
+
+                <li>Tech Products</li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="about-box">
+
+            <h3>2. Business Description</h3>
+
+            <p>
+                <strong>Nature of Business:</strong>
+                A creative agency specializing in design
+                and technology solutions.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Target Market:</strong>
+                Small to medium-sized businesses, startup
+                companies, tech firms, and entrepreneurs
+                looking to build and enhance their brand identity.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Unique Selling Proposition (USP):</strong>
+                Integration of creative design with cutting-edge
+                technology to deliver tailored and effective
+                branding solutions.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact">
+
+    <div class="section-title">
+
+        <h2>Contact Us</h2>
+
+        <p>Let's turn your idea into a digital brand.</p>
+
+    </div>
+
+
+    <div class="contact-container">
+
+
+        <!-- CONTACT INFORMATION -->
+
+        <div class="contact-info">
+
+            <h3> Contact Information</h3>
+
+
+            <div class="contact-item">
+
+                <strong>Business Email</strong>
+
+                <a href="mailto:edtechsolutionsltd36@gmail.com">
+                    edtechsolutionsltd36@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Personal Email</strong>
+
+                <a href="mailto:jeremiahnyauncho@gmail.com">
+                    jeremiahnyauncho@gmail.com
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Business Phone / WhatsApp</strong>
+
+                <a href="tel:+254769322665">
+                    +254 769 322 665
+                </a>
+
+                <br>
+
+                <a href="https://wa.me/254769322665"
+                   target="_blank">
+                     Chat on Business WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong>Personal Phone / WhatsApp</strong>
+
+                <a href="tel:+254785843038">
+                    +254 785 843 038
+                </a>
+
+                <br>
+
+                <a href="https://wa.me/254785843038"
+                   target="_blank">
+                     Chat on Personal WhatsApp
+                </a>
+
+            </div>
+
+
+            <div class="contact-item">
+
+                <strong> Location</strong>
+
+                Off Lang'ata South Road,
+                Love Bird Curio Shop,
+                Nairobi, Kenya.
+
+            </div>
+
+
+            <br>
+
+            <a class="btn"
+               href="https://wa.me/254769322665?text=Hello%20Edtech%20Solutions%20Ltd,%20I%20would%20like%20to%20enquire%20about%20your%20services."
+               target="_blank" >
+
+                 WhatsApp Us
+
+            </a>
+
+        </div>
+
+
+        <!-- CUSTOMER QUESTIONS -->
+
+        <div class="question-form">
+
+            <h3> Customer Questions & Answers</h3>
+
+            <p>
+                Leave your details and tell us what you need.
+                We will get back to you.
+            </p>
+
+
+            <form id="customerForm">
+
+
+                <label>
+                    <strong>Full Name</strong>
+                </label>
+
+                <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter your full name"
+                    required>
+
+
+                <label>
+                    <strong>Phone Number</strong>
+                </label>
+
+                <input
+                    type="tel"
+                    id="customerPhone"
+                    placeholder="Example: +254..."
+                    required>
+
+
+                <label>
+                    <strong>Email Address</strong>
+                </label>
+
+                <input
+                    type="email"
+                    id="customerEmail"
+                    placeholder="Enter your email"
+                    required>
+
+
+                <label>
+                    <strong>Service Required</strong>
+                </label>
+
+                <select id="customerService" required>
+
+                    <option value="">
+                        Select a service
+                    </option>
+
+                    <option value="Graphic Design">
+                        Graphic Design
+                    </option>
+
+                    <option value="Website Design">
+
+body {
+    background-color: #f0f4f8;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 50px;
+}
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+    }
+// Grab the elements from the HTML
+const title = document.getElementById('main-title');
+    const button = document.getElementById('color-button');
+
+// Add an event listener to run code when clicked
+button.addEventListener('click', () => {
+    title.style.color = '#ff4757';
+    title.textContent = 'The code works!';
+});
+/* 1. Target the entire body to set a background color and default font */
+body {
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* 2. Target all h1 headings to change their color and center them */
+h1 {
+    color: #333333;
+    text-align: center;
+    margin-top: 50px;
+}
+
+/* 3. Target paragraphs to change font size and line spacing */
+p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666666;
+}
